@@ -1,0 +1,39 @@
+/* ===========================
+   Footer
+   =========================== */
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-lg) 0;
+  margin-top: var(--space-xl);
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.footer__copy {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.footer__links {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+}
+
+.footer__links a {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  border-bottom: none;
+  transition: color var(--transition);
+}
+
+.footer__links a:hover {
+  color: var(--color-text);
+  border-bottom: none;
+}

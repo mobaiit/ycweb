@@ -1,0 +1,71 @@
+/* ===========================
+   随笔列表
+   =========================== */
+.blog__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.blog-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-md);
+  align-items: baseline;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  border-bottom-style: solid;
+  transition: background var(--transition);
+}
+
+.blog-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+/* 取消 a 标签下划线覆盖 */
+.blog-item:hover {
+  border-bottom-color: var(--color-border);
+}
+
+.blog-item__date {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+}
+
+.blog-item__right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.blog-item__title {
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  transition: color var(--transition);
+}
+
+.blog-item:hover .blog-item__title {
+  color: var(--color-text-muted);
+}
+
+.blog-item__excerpt {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.blog-item__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+@media (max-width: 480px) {
+  .blog-item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

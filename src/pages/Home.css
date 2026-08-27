@@ -1,0 +1,105 @@
+/* ===========================
+   Hero 区块
+   =========================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--nav-height);
+}
+
+.hero__eyebrow {
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.hero__title {
+  font-size: clamp(2.2rem, 6vw, var(--font-size-2xl));
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+.hero__title em {
+  font-style: normal;
+  position: relative;
+  display: inline-block;
+}
+
+/* 标题下划线装饰 */
+.hero__title em::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 2px;
+  background: var(--color-text);
+}
+
+.hero__sub {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+  max-width: 48ch;
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* 实心主按钮 */
+.btn--solid {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.btn--solid:hover {
+  background: transparent;
+  color: var(--color-text);
+}
+
+/* 滚动提示 */
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  animation: fadeInUp 1s ease 1s both;
+}
+
+.hero__scroll-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 36px;
+  background: var(--color-border);
+  animation: grow 1.4s ease infinite;
+}
+
+@keyframes grow {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translate(-50%, 12px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* 整个 hero 需要 relative 配合 scroll-hint 定位 */
+.hero {
+  position: relative;
+}
