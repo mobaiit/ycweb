@@ -10,9 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router-dom": "^6.30.6"
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^6.30.6",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "^19.2.18",

@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Works from './pages/Works';
 import Blog from './pages/Blog';
+import PostDetail from './pages/PostDetail';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/works" element={<Works />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<PostDetail />} />
         {/* 404 */}
         <Route
           path="*"
