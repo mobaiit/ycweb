@@ -1,0 +1,55 @@
+/* ===========================
+   隐藏系统光标（全局）
+   =========================== */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+/* ===========================
+   外圈：lerp 缓动跟随
+   mix-blend-mode: difference 使光标在任何颜色背景上都可见
+   =========================== */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #fff; /* difference 模式下 white 会反色显示为黑 */
+  background: transparent;
+  pointer-events: none;
+  z-index: 2147483647;
+  mix-blend-mode: difference;
+  will-change: transform;
+  /* transform 由 JS 直接写入 style，这里不设默认值 */
+}
+
+/* ===========================
+   内点：即时跟随
+   =========================== */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff; /* difference 模式下显示为黑色 */
+  pointer-events: none;
+  z-index: 2147483647;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+/* ===========================
+   点击反馈
+   =========================== */
+.cursor-ring {
+  transition: width 0.15s ease, height 0.15s ease;
+}
+
+.cursor-ring.is-clicking {
+  width: 18px;
+  height: 18px;
+}

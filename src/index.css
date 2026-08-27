@@ -24,6 +24,9 @@ body {
   font-family: var(--font-sans);
   font-size: var(--font-size-base);
   line-height: var(--line-height);
+  /* 方向四：噪点纸张质感 */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-repeat: repeat;
 }
 
 /* ===========================
@@ -83,10 +86,18 @@ img {
   height: 2px;
   background: var(--color-text);
   margin: var(--space-sm) 0 var(--space-md);
+  /* 方向一：divider 入场动画 */
+  transform-origin: left;
+  animation: dividerGrow 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes dividerGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 /* ===========================
-   Button
+   Button — 简化版：仅选中变色
    =========================== */
 .btn {
   display: inline-block;
@@ -98,9 +109,8 @@ img {
   font-size: var(--font-size-sm);
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: background var(--transition), color var(--transition);
   text-decoration: none;
-  border-bottom: 1px solid var(--color-text);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .btn:hover {
@@ -110,7 +120,7 @@ img {
 }
 
 /* ===========================
-   Tag
+   Tag — 轻微 hover 反色
    =========================== */
 .tag {
   display: inline-block;
@@ -119,4 +129,44 @@ img {
   padding: 2px 8px;
   border: 1px solid var(--color-border);
   color: var(--color-text-muted);
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
+
+.tag:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+}
+
+/* ===========================
+   方向三：Reveal 滚动动画
+   =========================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity  0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 子元素交错延迟 */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity  0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: none; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.12s; opacity: 1; transform: none; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.19s; opacity: 1; transform: none; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.26s; opacity: 1; transform: none; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.33s; opacity: 1; transform: none; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.40s; opacity: 1; transform: none; }
+.reveal-stagger.is-visible > *:nth-child(n+7) { transition-delay: 0.46s; opacity: 1; transform: none; }

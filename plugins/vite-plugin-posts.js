@@ -28,6 +28,20 @@ const RESOLVED_LIST         = '\0virtual:posts';
 const RESOLVED_MAP          = '\0virtual:posts-map';
 const RESOLVED_POST_PREFIX  = '\0virtual:post/';
 
+/** 把 gray-matter 解析出的 date 字段统一转成 YYYY-MM-DD 字符串 */
+function normalizeDate(raw) {
+  if (!raw) return '';
+  // gray-matter 会把 YAML 日期自动解析成 JS Date 对象
+  if (raw instanceof Date) {
+    const y = raw.getFullYear();
+    const m = String(raw.getMonth() + 1).padStart(2, '0');
+    const d = String(raw.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }
+  // 字符串情况，取前 10 位 YYYY-MM-DD
+  return String(raw).slice(0, 10);
+}
+
 /** 读取全部文章（meta + content），按日期倒序 */
 function loadAllPosts() {
   if (!fs.existsSync(POSTS_DIR)) return [];
@@ -43,7 +57,7 @@ function loadAllPosts() {
       const meta = {
         slug,
         title:   data.title   ?? slug,
-        date:    data.date    ? String(data.date).slice(0, 10) : (dateFromName ?? ''),
+        date:    data.date    ? normalizeDate(data.date) : (dateFromName ?? ''),
         tags:    data.tags    ?? [],
         excerpt: data.excerpt ?? '',
       };

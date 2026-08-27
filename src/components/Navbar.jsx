@@ -4,9 +4,8 @@ import './Navbar.css';
 
 const NAV_ITEMS = [
   { label: '首页', to: '/' },
-  { label: '关于', to: '/about' },
-  { label: '作品', to: '/works' },
   { label: '随笔', to: '/blog' },
+  { label: '关于', to: '/about' },
 ];
 
 export default function Navbar() {
