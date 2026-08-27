@@ -1,8 +1,8 @@
 import './About.css';
 
 const SKILLS = [
-  'React', 'TypeScript', 'Node.js', 'CSS / Sass',
-  '摄影', '随笔写作', '平面设计', '咖啡',
+  'Java', 'Spring Cloud', '微服务', 'Docker', 'Kubernetes',
+  'AI Agent', 'Python', 'HTML5', '系统架构', '随笔写作',
 ];
 
 export default function About() {
@@ -14,24 +14,35 @@ export default function About() {
           <span className="divider" />
 
           <div className="about__grid">
-            {/* 头像占位 */}
-            <div className="about__avatar-placeholder" aria-hidden="true">✦</div>
+            {/* 头像 */}
+            <img 
+              src="/images/luomoliubai.jpg" 
+              alt="落墨留白"
+              className="about__avatar"
+            />
 
             <div className="about__content">
-              <h2>落墨留白</h2>
+              <h2>LURI</h2>
               <p>
-                独立开发者 / 文字工作者。热衷于探索技术与美学的交叉地带，
-                相信好的设计应该像空气一样自然。
+                独立开发者 / 系统架构师。追求极致简洁的代码与系统的最优解。
+                不迎合，不妥协，只写让自己满意的程序。
               </p>
               <p>
-                平时喜欢拍照、读书、煮咖啡。偶尔在这里记录一些正在思考的事情，
-                欢迎你停下来坐坐。
+                昼伏夜出。凌晨两点是我大脑最清醒的时刻。
+                桌上只有一杯冷萃黑咖啡，显示器里是未完成的架构重构。
               </p>
               <p>
-                如果有项目合作或只是想聊聊，随时可以给我写信：
-                <a href="mailto:hello@example.com" style={{ borderBottom: '1px solid var(--color-border)' }}>
-                  hello@example.com
+                正在成为数字游民。带着装载所有内核的笔记本，
+                在世界各地的海边或雪山，遥控云端服务器。
+              </p>
+              <p>
+                技术合作或深度交流：
+                <a href="mailto:yuchenwd@gmail.com" style={{ borderBottom: '1px solid var(--color-border)' }}>
+                  yuchenwd@gmail.com
                 </a>
+              </p>
+              <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
+                邮件结尾我只会写两个字：运行。
               </p>
 
               <div className="about__skills">

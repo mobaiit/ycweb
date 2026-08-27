@@ -87,7 +87,19 @@ export default function postsPlugin() {
       // 完整文章 Map：{ [slug]: { meta, content } }
       if (id === RESOLVED_MAP) {
         const all = loadAllPosts();
-        const map = Object.fromEntries(all.map((p) => [p.meta.slug, p]));
+        const map = {};
+        
+        all.forEach((post, index) => {
+          const prevPost = all[index + 1]; // 更早的文章（日期更小）
+          const nextPost = all[index - 1]; // 更新的文章（日期更大）
+          
+          map[post.meta.slug] = {
+            ...post,
+            prev: prevPost ? { slug: prevPost.meta.slug, title: prevPost.meta.title } : null,
+            next: nextPost ? { slug: nextPost.meta.slug, title: nextPost.meta.title } : null,
+          };
+        });
+        
         return `export default ${JSON.stringify(map)};`;
       }
 

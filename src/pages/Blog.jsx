@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import posts from 'virtual:posts';
 import './Blog.css';
 
@@ -101,7 +101,24 @@ function TagFilter({ tags, activeTag, setActiveTag, totalCount }) {
    主组件
    =========================== */
 export default function Blog() {
-  const [activeTag, setActiveTag] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tagFromUrl = searchParams.get('tag');
+  const [activeTag, setActiveTag] = useState(tagFromUrl);
+
+  // URL 参数变化时同步状态
+  useEffect(() => {
+    setActiveTag(tagFromUrl);
+  }, [tagFromUrl]);
+
+  // 更新标签时同步 URL
+  const handleTagChange = (tag) => {
+    setActiveTag(tag);
+    if (tag) {
+      setSearchParams({ tag });
+    } else {
+      setSearchParams({});
+    }
+  };
 
   const tags = getAllTags(posts);
 
@@ -120,7 +137,7 @@ export default function Blog() {
           <p className="blog-page__eyebrow">BLOG</p>
           <span className="divider" />
           <p className="blog-page__desc">
-            一些碎碎念，关于设计、生活、和正在思考的问题。
+            代码、架构、思考。凌晨两点的清醒记录。
           </p>
         </header>
 
@@ -148,7 +165,14 @@ export default function Blog() {
                           {post.tags?.length > 0 && (
                             <div className="timeline__item-tags">
                               {post.tags.map((t) => (
-                                <span key={t} className="tag">{t}</span>
+                                <Link 
+                                  key={t} 
+                                  to={`/blog?tag=${encodeURIComponent(t)}`}
+                                  className="tag"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  {t}
+                                </Link>
                               ))}
                             </div>
                           )}
@@ -167,7 +191,7 @@ export default function Blog() {
 
           {tags.length > 0 && (
             <aside className="blog-sidebar">
-              <TagFilter tags={tags} activeTag={activeTag} setActiveTag={setActiveTag} totalCount={posts.length} />
+              <TagFilter tags={tags} activeTag={activeTag} setActiveTag={handleTagChange} totalCount={posts.length} />
             </aside>
           )}
         </div>

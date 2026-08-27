@@ -14,6 +14,11 @@
   object-fit: cover;
   filter: grayscale(100%);
   border: 1px solid var(--color-border);
+  transition: filter 0.3s ease;
+}
+
+.about__avatar:hover {
+  filter: grayscale(0%);
 }
 
 /* 头像占位（无图时） */
@@ -49,7 +54,8 @@
   .about__grid {
     grid-template-columns: 1fr;
   }
-  .about__avatar-placeholder {
+  .about__avatar {
     max-width: 180px;
+    margin: 0 auto;
   }
 }

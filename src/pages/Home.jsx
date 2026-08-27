@@ -24,15 +24,15 @@ function SplitText({ text, baseDelay = 0.2, stagger = 0.04, className = '' }) {
 }
 
 export default function Home() {
-  const line1 = '你好，我是';
-  const line2 = '落墨留白';
+  const line1 = '我是';
+  const line2 = 'LURI';
   const suffix = '。';
   const charCount1 = [...line1].length;
 
   return (
     <section className="hero">
       <div className="container">
-        <p className="hero__eyebrow" aria-label="PERSONAL SITE">PERSONAL SITE</p>
+        <p className="hero__eyebrow" aria-label="DEVELOPER">DEVELOPER</p>
 
         {/* 方向二：标题逐字淡入 */}
         <h1 className="hero__title" aria-label={`${line1}${line2}${suffix}`}>
@@ -48,15 +48,15 @@ export default function Home() {
         </h1>
 
         <p className="hero__sub">
-          用文字记录思考，以代码构建世界。喜欢简单的事物，相信留白是一种表达。
+          sudo rm -rf 无意义的社交。写极致简洁的代码，追求系统的最优解。
         </p>
 
         <div className="hero__actions">
           <Link to="/blog" className="btn">
-            <span>查看随笔</span>
+            <span>随笔</span>
           </Link>
           <Link to="/about" className="btn">
-            <span>了解我</span>
+            <span>关于</span>
           </Link>
         </div>
       </div>
