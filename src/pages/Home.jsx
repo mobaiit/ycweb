@@ -25,7 +25,7 @@ function SplitText({ text, baseDelay = 0.2, stagger = 0.04, className = '' }) {
 
 export default function Home() {
   const line1 = '我是';
-  const line2 = 'LURI';
+  const line2 = '落墨留白(LURI)';
   const suffix = '。';
   const charCount1 = [...line1].length;
 
