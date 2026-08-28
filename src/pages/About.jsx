@@ -25,19 +25,19 @@ export default function About() {
             <div className="about__content">
               <h2>LURI</h2>
               <p>
-                独立开发者 / 系统架构师。追求极致简洁的代码与系统的最优解。
-                不迎合，不妥协，只写让自己满意的程序。
+                敲了八年后端代码，主要用 Java。
+                平时工作是拆系统、调性能、填别人挖的坑。
               </p>
               <p>
-                昼伏夜出。凌晨两点是我大脑最清醒的时刻。
-                桌上只有一杯冷萃黑咖啡，显示器里是未完成的架构重构。
+                微服务、分布式、容器化这些做得多了，偶尔也碰 AI 相关的东西，
+                算是跟着行业走。
               </p>
               <p>
-                正在成为数字游民。带着装载所有内核的笔记本，
-                在世界各地的海边或雪山，遥控云端服务器。
+                业余时间写写博客，记一些不想忘掉的事。
+                技术的、生活的都有，没有固定主题。
               </p>
               <p>
-                技术合作或深度交流：
+                联系邮箱：
                 <a href="mailto:yuchenwd@gmail.com" style={{ borderBottom: '1px solid var(--color-border)' }}>
                   yuchenwd@gmail.com
                 </a>
