@@ -41,9 +41,6 @@ export default function About() {
                   yuchenwd@gmail.com
                 </a>
               </p>
-              <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
-                邮件结尾我只会写两个字：运行。
-              </p>
 
               <div className="about__skills">
                 {SKILLS.map((s) => (
