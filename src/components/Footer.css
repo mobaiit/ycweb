@@ -31,9 +31,18 @@
   color: var(--color-text-muted);
   border-bottom: none;
   transition: color var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
 }
 
 .footer__links a:hover {
   color: var(--color-text);
   border-bottom: none;
+}
+
+.footer__icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
 }

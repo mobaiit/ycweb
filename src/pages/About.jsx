@@ -6,6 +6,14 @@ const SKILLS = [
   'AI Agent', 'Python', 'HTML5', '系统架构', '随笔写作',
 ];
 
+function Icon({ id }) {
+  return (
+    <svg className="about__link-icon" aria-hidden="true">
+      <use href={`/icons.svg#${id}`} />
+    </svg>
+  );
+}
+
 export default function About() {
   return (
     <main style={{ paddingTop: 'var(--nav-height)' }}>
@@ -37,10 +45,20 @@ export default function About() {
                 技术的、生活的都有，没有固定主题。
               </p>
               <p>
-                联系邮箱：
+                <Icon id="gmail-icon" />
                 <a href="mailto:yuchenwd@gmail.com" style={{ borderBottom: '1px solid var(--color-border)' }}>
                   yuchenwd@gmail.com
                 </a>
+              </p>
+              <p>
+                <Icon id="github-icon" />
+                <a href="https://github.com/mobaiit" target="_blank" rel="noopener noreferrer" style={{ borderBottom: '1px solid var(--color-border)' }}>
+                  github.com/mobaiit
+                </a>
+              </p>
+              <p>
+                <Icon id="qq-icon" />
+                QQ：37010871
               </p>
 
               <div className="about__skills">

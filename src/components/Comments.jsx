@@ -14,6 +14,7 @@ function WalineComments() {
       serverURL: 'https://comments.lmlb.cc.cd',
       lang: 'zh-CN',
       dark: 'auto',
+      avatar: 'wavatar',
       emoji: false,
       search: false,
       imageUploader: false,

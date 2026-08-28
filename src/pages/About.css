@@ -41,6 +41,16 @@
 
 .about__content p {
   margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.about__link-icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
 }
 
 .about__skills {
