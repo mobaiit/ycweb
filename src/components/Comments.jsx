@@ -24,7 +24,7 @@ function WalineComments() {
     };
   }, []);
 
-  return <div ref={containerRef} />;
+  return <div id="waline-container" ref={containerRef} />;
 }
 
 export default function Comments() {

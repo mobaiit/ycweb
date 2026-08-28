@@ -66,7 +66,7 @@
    =========================== */
 .post__body {
   max-width: 68ch;
-  padding-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
 }
 
 .post__body p {
@@ -180,12 +180,11 @@
    上一篇 / 下一篇导航
    =========================== */
 .post__nav {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--space-md);
-  padding: var(--space-lg) 0;
-  border-top: 1px solid var(--color-border);
-  margin-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  margin-top: var(--space-sm);
 }
 
 .post__nav-item {
@@ -204,8 +203,8 @@
 }
 
 .post__nav-item--next {
-  text-align: right;
-  margin-left: auto;
+  text-align: left;
+  margin-left: 0;
 }
 
 .post__nav-label {
@@ -221,10 +220,6 @@
 }
 
 @media (max-width: 720px) {
-  .post__nav {
-    grid-template-columns: 1fr;
-  }
-  
   .post__nav-item--next {
     text-align: left;
     margin-left: 0;
@@ -235,7 +230,18 @@
    留言区
    =========================== */
 .comments {
-  margin-top: var(--space-xl);
-  padding-top: var(--space-xl);
-  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-md);
+  padding-top: 0;
+}
+
+/* 防止 Waline 的 a 标签颜色污染导航链接 */
+.post__nav-item,
+.post__nav-item:hover,
+.post__nav-label,
+.post__nav-title {
+  color: var(--color-text-muted);
+}
+
+.post__nav-title {
+  color: var(--color-text);
 }

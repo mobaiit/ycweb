@@ -4,7 +4,7 @@
 .comments__tabs {
   display: flex;
   gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-sm);
 }
 
 .comments__tab {
@@ -13,9 +13,10 @@
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
   font-family: var(--font-sans);
-  padding: 6px 16px;
+  padding: 8px 20px;
   cursor: pointer;
-  transition: border-color var(--transition), color var(--transition);
+  transition: border-color var(--transition), color var(--transition),
+    background var(--transition);
 }
 
 .comments__tab:hover {
@@ -25,9 +26,245 @@
 
 .comments__tab.is-active {
   border-color: var(--color-text);
-  color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg);
 }
 
 .comments__body {
   min-height: 120px;
+}
+
+/* ===========================
+   Waline CSS 变量覆盖
+   =========================== */
+#waline-container {
+  /* 主题色改为黑色 */
+  --waline-theme-color: #111111;
+  --waline-active-color: #333333;
+  /* 文字颜色 */
+  --waline-color: #111111;
+  --waline-dark-grey: #666666;
+  --waline-light-grey: #999999;
+  /* 背景 */
+  --waline-bg-color: #ffffff;
+  --waline-bg-color-light: #f5f5f5;
+  --waline-bg-color-hover: #f5f5f5;
+  /* 边框 — 统一用实线深色 */
+  --waline-border-color: #111111;
+  --waline-border: 1px solid #111111;
+  /* 头像方形 */
+  --waline-avatar-radius: 0;
+  --waline-box-shadow: none;
+  /* badge 颜色 */
+  --waline-badge-color: #111111;
+  /* 字号 */
+  --waline-font-size: 1rem;
+
+  font-family: var(--font-sans);
+}
+
+/* ===========================
+   wl-panel：去掉圆角、内边距、间距
+   真实结构：.wl-comment > .wl-panel
+   =========================== */
+#waline-container .wl-panel {
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  /* panel 内部是 flex 列，把间距清零让各块紧贴 */
+  margin: 0 !important;
+}
+
+/* ===========================
+   wl-header：昵称/邮箱/网址输入行
+   原始：border-bottom: 2px dashed，有圆角
+   =========================== */
+#waline-container .wl-header {
+  border: 1px solid #111111 !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* header 分隔线（移动端 <580px 时 border-bottom） */
+#waline-container .wl-header-item:not(:last-child) {
+  border-bottom: none !important;
+  border-right: 1px solid #dddddd !important;
+}
+
+/* label 颜色 — 原本继承 theme-color（绿色） */
+#waline-container .wl-header label {
+  color: #999999 !important;
+  font-size: 0.8rem !important;
+}
+
+/* input */
+#waline-container .wl-input {
+  font-family: var(--font-sans) !important;
+  font-size: 0.9rem !important;
+  color: #111111 !important;
+}
+
+#waline-container .wl-input::placeholder {
+  color: #bbbbbb !important;
+}
+
+/* ===========================
+   wl-editor：正文区
+   原始：width: calc(100% - 1em); margin: .75em .5em
+   必须把 width 和 margin 清掉才能消除缝隙
+   =========================== */
+#waline-container .wl-editor {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 12px !important;
+  border: 1px solid #111111 !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+  color: #111111 !important;
+  background: #ffffff !important;
+  min-height: 120px !important;
+}
+
+#waline-container .wl-editor:focus {
+  background: #ffffff !important;
+  outline: none !important;
+}
+
+/* ===========================
+   wl-footer：工具栏
+   原始：margin: .5em .75em（产生缝隙）
+   =========================== */
+#waline-container .wl-footer {
+  margin: 0 !important;
+  padding: 8px 12px !important;
+  border: 1px solid #111111 !important;
+  border-radius: 0 !important;
+  background: #f5f5f5 !important;
+}
+
+/* ===========================
+   按钮
+   =========================== */
+
+/* 提交按钮 */
+#waline-container .wl-btn.primary {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: 1px solid #111111 !important;
+  border-radius: 0 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.875rem !important;
+  padding: 5px 18px !important;
+}
+
+#waline-container .wl-btn.primary:hover,
+#waline-container .wl-btn.primary:active {
+  background: #333333 !important;
+  border-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+/* 登录 / 其他按钮 */
+#waline-container .wl-btn:not(.primary) {
+  background: transparent !important;
+  color: #111111 !important;
+  border: 1px solid #dddddd !important;
+  border-radius: 0 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.875rem !important;
+}
+
+#waline-container .wl-btn:not(.primary):hover,
+#waline-container .wl-btn:not(.primary):active {
+  border-color: #111111 !important;
+  color: #111111 !important;
+}
+
+/* ===========================
+   评论列表
+   =========================== */
+
+/* 头部（评论数 + 排序） */
+#waline-container .wl-meta-head {
+  margin-top: 1.5rem !important;
+  padding: 0 !important;
+  border-bottom: 1px solid #dddddd !important;
+  padding-bottom: 0.5rem !important;
+}
+
+#waline-container .wl-count {
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  color: #111111 !important;
+}
+
+#waline-container .wl-sort li {
+  font-size: 0.8rem !important;
+  color: #999999 !important;
+}
+
+#waline-container .wl-sort li.active {
+  color: #111111 !important;
+}
+
+/* 单条评论底部虚线 → 实线 */
+#waline-container .wl-card {
+  border-bottom: 1px solid #dddddd !important;
+}
+
+#waline-container .wl-card-item:last-child > .wl-card {
+  border-bottom: none !important;
+}
+
+/* 头像 */
+#waline-container .wl-avatar {
+  border: 1px solid #dddddd !important;
+  border-radius: 0 !important;
+}
+
+#waline-container .wl-avatar img {
+  border-radius: 0 !important;
+}
+
+/* 用户头像（评论列表里） */
+#waline-container .wl-user-avatar {
+  border-radius: 0 !important;
+}
+
+/* 昵称颜色（a 标签继承了 theme-color） */
+#waline-container .wl-nick {
+  color: #111111 !important;
+}
+
+#waline-container a.wl-nick {
+  color: #111111 !important;
+}
+
+/* 时间 */
+#waline-container .wl-time {
+  color: #999999 !important;
+}
+
+/* 内容 */
+#waline-container .wl-content {
+  color: #111111 !important;
+}
+
+/* 刷新按钮 */
+#waline-container .wl-operation .wl-btn {
+  border-radius: 0 !important;
+}
+
+/* 隐藏版权和 RSS */
+#waline-container .wl-power {
+  display: none !important;
+}
+
+#waline-container .wl-rss {
+  display: none !important;
 }
