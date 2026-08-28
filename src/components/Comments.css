@@ -1,0 +1,33 @@
+/* ===========================
+   留言区 Tab 切换
+   =========================== */
+.comments__tabs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.comments__tab {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-sans);
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.comments__tab:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.comments__tab.is-active {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.comments__body {
+  min-height: 120px;
+}

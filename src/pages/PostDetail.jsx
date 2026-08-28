@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import postsMap from 'virtual:posts-map';
+import Comments from '../components/Comments';
 import './PostDetail.css';
 
 function formatDate(str) {
@@ -131,6 +132,8 @@ export default function PostDetail() {
             </Link>
           )}
         </nav>
+
+        <Comments />
       </div>
     </main>
   );

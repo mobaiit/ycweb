@@ -230,3 +230,12 @@
     margin-left: 0;
   }
 }
+
+/* ===========================
+   留言区
+   =========================== */
+.comments {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+}

@@ -1,3 +1,4 @@
+import Comments from '../components/Comments';
 import './About.css';
 
 const SKILLS = [
@@ -49,6 +50,12 @@ export default function About() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <Comments />
         </div>
       </section>
     </main>
