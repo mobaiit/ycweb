@@ -25,12 +25,23 @@
 
 /* Logo — 方向一：字符轻微间距动画 */
 .navbar__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   border-bottom: none;
   color: var(--color-text);
   transition: letter-spacing 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity var(--transition);
+}
+
+.navbar__logo-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+  border: none;
 }
 
 .navbar__logo:hover {

@@ -26,6 +26,7 @@ export default function Navbar() {
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="container navbar__inner">
         <NavLink to="/" className="navbar__logo" onClick={closeMenu}>
+          <img src="/images/luri-logo.png" alt="LURI" className="navbar__logo-img" />
           落墨留白
         </NavLink>
 
