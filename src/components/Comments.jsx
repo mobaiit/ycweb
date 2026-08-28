@@ -11,7 +11,7 @@ function WalineComments() {
     if (!containerRef.current) return;
     const instance = init({
       el: containerRef.current,
-      serverURL: 'https://ycweb-comments-58r4q7e34-mobaiits-projects.vercel.app',
+      serverURL: 'https://comments.lmlb.cc.cd',
       lang: 'zh-CN',
       dark: 'auto',
       emoji: false,
